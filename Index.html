@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+  <div class="bg-white shadow-xl rounded-2xl w-full max-w-lg overflow-hidden">
+    
+    <!-- Header Tabs -->
+    <div class="flex justify-around border-b border-gray-200">
+      <button onclick="showForm('login')" id="loginTab" class="w-1/2 text-center py-4 font-semibold text-blue-600 border-b-2 border-blue-600">Login</button>
+      <button onclick="showForm('register')" id="registerTab" class="w-1/2 text-center py-4 font-semibold text-gray-500 hover:text-blue-600">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginForm" class="p-8 space-y-5">
+      <h2 class="text-2xl font-bold text-center text-gray-800">Login Page</h2>
+      <form>
+        <div class="space-y-3">
+          <input type="email" placeholder="Email Address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" />
+          <input type="password" placeholder="Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" />
+          <div class="flex items-center justify-between">
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox text-blue-600" />
+              <span class="text-sm text-gray-600">Remember Me</span>
+            </label>
+            <a href="#" class="text-sm text-blue-500 hover:underline">Forgot Password?</a>
+          </div>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Login</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Register Form -->
+    <div id="registerForm" class="p-8 space-y-5 hidden">
+      <h2 class="text-2xl font-bold text-center text-gray-800">Register Page</h2>
+      <form>
+        <div class="space-y-3">
+          <input type="text" placeholder="Full Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" />
+          <input type="text" placeholder="Username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" />
+          <input type="email" placeholder="Email Address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" />
+          <input type="password" placeholder="Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" />
+          <input type="password" placeholder="Confirm Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" />
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Register</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Toggle Script -->
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const loginTab = document.getElementById("loginTab");
+    const registerTab = document.getElementById("registerTab");
+
+    function showForm(type) {
+      if (type === "login") {
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+        loginTab.classList.add("text-blue-600", "border-blue-600");
+        loginTab.classList.remove("text-gray-500");
+        registerTab.classList.remove("text-blue-600", "border-blue-600");
+        registerTab.classList.add("text-gray-500");
+      } else {
+        loginForm.classList.add("hidden");
+        registerForm.classList.remove("hidden");
+        registerTab.classList.add("text-blue-600", "border-blue-600");
+        registerTab.classList.remove("text-gray-500");
+        loginTab.classList.remove("text-blue-600", "border-blue-600");
+        loginTab.classList.add("text-gray-500");
+      }
+    }
+  </script>
+</body>
+</html>
